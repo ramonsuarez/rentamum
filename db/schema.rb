@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128164117) do
+ActiveRecord::Schema.define(version: 20161128164644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20161128164117) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["user_id"], name: "index_mother_listings_on_user_id", using: :btree
+  end
+
+  create_table "mother_skills", force: :cascade do |t|
+    t.integer  "skill_id"
+    t.integer  "mother_listing_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["mother_listing_id"], name: "index_mother_skills_on_mother_listing_id", using: :btree
+    t.index ["skill_id"], name: "index_mother_skills_on_skill_id", using: :btree
   end
 
   create_table "skills", force: :cascade do |t|
@@ -80,6 +89,8 @@ ActiveRecord::Schema.define(version: 20161128164117) do
   add_foreign_key "bookings", "mother_listings"
   add_foreign_key "bookings", "users"
   add_foreign_key "mother_listings", "users"
+  add_foreign_key "mother_skills", "mother_listings"
+  add_foreign_key "mother_skills", "skills"
   add_foreign_key "user_favorites", "mother_listings"
   add_foreign_key "user_favorites", "users"
 end
