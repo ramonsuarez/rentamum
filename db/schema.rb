@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128163420) do
+ActiveRecord::Schema.define(version: 20161128163539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20161128163420) do
     t.index ["user_id"], name: "index_mother_listings_on_user_id", using: :btree
   end
 
+  create_table "user_favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "mother_listing_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["mother_listing_id"], name: "index_user_favorites_on_mother_listing_id", using: :btree
+    t.index ["user_id"], name: "index_user_favorites_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",  null: false
     t.string   "encrypted_password",     default: "",  null: false
@@ -65,4 +74,6 @@ ActiveRecord::Schema.define(version: 20161128163420) do
   add_foreign_key "bookings", "mother_listings"
   add_foreign_key "bookings", "users"
   add_foreign_key "mother_listings", "users"
+  add_foreign_key "user_favorites", "mother_listings"
+  add_foreign_key "user_favorites", "users"
 end
