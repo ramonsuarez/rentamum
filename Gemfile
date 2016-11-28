@@ -6,7 +6,7 @@ gem 'puma'
 gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
-gem 'redis'
+gem 'redis-rails'
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -15,6 +15,11 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+
+gem 'rails_admin'
+gem 'devise'
+
+
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -25,6 +30,7 @@ group :development, :test do
   gem 'spring'
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'faker'
 end
 
 
