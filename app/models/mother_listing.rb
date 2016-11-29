@@ -1,9 +1,9 @@
 class MotherListing < ApplicationRecord
   belongs_to :user
-  has_many :user_favorites
-  has_many :bookings
-  has_many :user_reviews
-  has_many :mother_skills
+  belongs_to :user_favorite
+  belongs_to :booking
+  belongs_to :user_reviews
+  has_one :mother_skill
   has_many :mother_listing_reviews
   has_many :skills, through: :mother_skill
 end
