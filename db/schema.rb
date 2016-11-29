@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128164644) do
+ActiveRecord::Schema.define(version: 20161129090411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20161128164644) do
     t.datetime "updated_at",        null: false
     t.index ["mother_listing_id"], name: "index_bookings_on_mother_listing_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+  end
+
+  create_table "mother_listing_reviews", force: :cascade do |t|
+    t.text     "description"
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.integer  "mother_listing_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["mother_listing_id"], name: "index_mother_listing_reviews_on_mother_listing_id", using: :btree
+    t.index ["user_id"], name: "index_mother_listing_reviews_on_user_id", using: :btree
   end
 
   create_table "mother_listings", force: :cascade do |t|
@@ -88,6 +99,8 @@ ActiveRecord::Schema.define(version: 20161128164644) do
 
   add_foreign_key "bookings", "mother_listings"
   add_foreign_key "bookings", "users"
+  add_foreign_key "mother_listing_reviews", "mother_listings"
+  add_foreign_key "mother_listing_reviews", "users"
   add_foreign_key "mother_listings", "users"
   add_foreign_key "mother_skills", "mother_listings"
   add_foreign_key "mother_skills", "skills"
