@@ -1,0 +1,27 @@
+.mdl-layout__header {
+  background-color: #212121;
+  text-transform: uppercase;
+  z-index: 5;
+
+  & a:link, & a:visited {
+    color: #ffffff;
+    text-decoration: none !important;
+    -webkit-transition: .2s color;
+    transition: .2s color;
+  }
+  & a:active, & a:hover {
+    color: #f44336;
+  }
+}
+
+header {
+  position: fixed;
+}
+.nav-up {
+    top: -64px;
+}
+
+.nav-down {
+    top: 0;
+}
+
