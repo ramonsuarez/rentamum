@@ -1,4 +1,4 @@
 class MotherSkill < ApplicationRecord
-  belongs_to :skill
+  has_many :skills
   belongs_to :mother_listing
 end
