@@ -1,7 +1,7 @@
 .mdl-layout__header {
   background-color: #212121;
   text-transform: uppercase;
-  z-index: 5;
+  // z-index: 5;
 
   & a:link, & a:visited {
     color: #ffffff;
@@ -12,6 +12,10 @@
   & a:active, & a:hover {
     color: #f44336;
   }
+}
+
+.body-wrapper {
+  margin-top: 60px;
 }
 
 header {
