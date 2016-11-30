@@ -3,9 +3,8 @@
     <span class="mdl-layout-title"><%= link_to 'Rent A Mum', root_path %></span>
     <div class="mdl-layout-spacer"></div>
     <nav class="mdl-navigation mdl-layout--large-screen-only">
-      <a class="mdl-navigation__link" href="">Browse</a>
-      <a class="mdl-navigation__link" href="">Sign Up</a>
-          <%= link_to 'Sign in', new_user_session_path %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+      <%= link_to 'Sign in', new_user_session_path %>
 
       <a class="mdl-navigation__link" href="">Create a Mum</a>
     </nav>
@@ -14,7 +13,6 @@
 <div class="mdl-layout__drawer mdl-layout--small-screen-only">
   <span class="mdl-layout-title">Title</span>
   <nav class="mdl-navigation">
-    <a class="mdl-navigation__link" href="">Browse</a>
     <a class="mdl-navigation__link" href="">Sign Up</a>
     <a class="mdl-navigation__link" href="">Sign In</a>
     <a class="mdl-navigation__link" href="">Create a Mum</a>
