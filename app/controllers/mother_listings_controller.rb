@@ -46,5 +46,6 @@ class MotherListingsController < ApplicationController
 
   def mother_listing_params
     params.require(:mother_listing).permit(:id)
+  end
 
 end
