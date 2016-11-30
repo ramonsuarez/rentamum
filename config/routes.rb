@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  get 'bookings/show'
 
-  get 'bookings/new'
-
-  get 'bookings/create'
-
-  get 'bookings/destroy'
-
-  get 'users/show'
+  resources :users, only: :show
+  resources :mother_listings do
+    resources :bookings, only: [:show, :new, :create, :destroy]
+  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
