@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+MotherListing.destroy_all
+User.destroy_all
+
 10.times do
   MotherListing.create(
     first_name: Faker::Name.first_name,
@@ -17,8 +20,11 @@ require 'faker'
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
     address: Faker::Address.street_address + ", " + Faker::Address.state,
-    phone: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email
+    phone: Faker::PhoneNumber.phone_number
   )
 end
+
+
