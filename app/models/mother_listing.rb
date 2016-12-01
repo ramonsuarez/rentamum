@@ -10,4 +10,9 @@ class MotherListing < ApplicationRecord
 
   acts_as_bookable# time_type: :range #time_type: :none
 
+    # Make searchable
+  searchable do
+      text :first_name, :last_name, :description, :location, :price, :average_rating
+      end
+
 end
