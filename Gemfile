@@ -14,6 +14,10 @@ gem "attachinary", github: "assembler/attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
 
+#gems for search 
+gem 'sunspot_rails'
+gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
