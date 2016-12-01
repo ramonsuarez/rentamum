@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  # Moved mounts up to make sure they run before everything. R.
+  mount Attachinary::Engine => "/attachinary"
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :mother_listings do
     resources :bookings, only: [:show, :new, :create, :destroy]
   end
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { registrations: 'registrations' }
   root to: 'pages#home'
   resources :users, only: :show
