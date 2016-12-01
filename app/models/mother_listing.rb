@@ -6,4 +6,5 @@ class MotherListing < ApplicationRecord
   has_many :mother_listing_reviews
   has_one :mother_skill
   has_many :skills, through: :mother_skill
+  has_attachment :photo
 end
