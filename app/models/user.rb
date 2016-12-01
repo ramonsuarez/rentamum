@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :book_moms, through: :bookings, :source => :mother_listing
   # Shortcut to be able to refference mother_listing directly without going through user_favorite
   has_many :favorite_moms, through: :user_favorites, :source => :mother_listing
+  has_attachment :photo
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/assembler/attachinary.git
+  revision: 98a895be22edc74b1928ffa3ae116d24bd9818fd
+  specs:
+    attachinary (1.3.1)
+      cloudinary (~> 1.1.0)
+      rails (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -41,6 +49,7 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (6.5.3)
       execjs
+    aws_cf_signer (0.1.3)
     bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -50,6 +59,9 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (9.0.6)
+    cloudinary (1.1.0)
+      aws_cf_signer
+      rest-client
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -66,6 +78,8 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    domain_name (0.5.20161129)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
     faker (1.6.6)
@@ -81,10 +95,16 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (0.7.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    jquery-fileupload-rails (0.4.7)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      sass (>= 3.2)
     jquery-rails (4.2.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -111,6 +131,7 @@ GEM
     minitest (5.9.1)
     multi_json (1.12.1)
     nested_form (0.3.2)
+    netrc (0.11.0)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -192,6 +213,10 @@ GEM
     remotipart (1.3.1)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
+    rest-client (2.0.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -222,6 +247,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.3)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
     warden (1.2.6)
       rack (>= 1.0)
     websocket-driver (0.6.4)
@@ -232,14 +260,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  attachinary!
   autoprefixer-rails
   better_errors
   binding_of_caller
+  cloudinary (= 1.1.0)
+  coffee-rails
   devise
   faker
   figaro
   font-awesome-sass
   jbuilder (~> 2.0)
+  jquery-fileupload-rails
   jquery-rails
   listen (~> 3.0.5)
   material_design_lite-rails (~> 1.2)
