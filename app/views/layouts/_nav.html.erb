@@ -5,10 +5,7 @@
     <%= image_tag "rta_logo.png",height: 60 %></span>
   <% end %>
     <div class="mdl-layout-spacer"></div>
-    <nav class="mdl-navigation mdl-layout--large-screen-only">
-      <a class="mdl-navigation__link" href="<%= new_user_registration_path %>">Sign Up</a>
-
-
+    <nav class="mdl-navigation">
 
     <% if user_signed_in? %>
 
@@ -46,13 +43,10 @@
 
     <% else %>
 
-      <!-- Login text link -->
+      <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "mdl-navigation__link" %>
       <%= link_to t(".sign_in", default: "Sign In"), new_user_session_path, class: "mdl-navigation__link" %>
 
     <% end %>
-
-
-
 
     </nav>
   </div>
@@ -60,8 +54,7 @@
 <div class="mdl-layout__drawer mdl-layout--small-screen-only">
   <span class="mdl-layout-title">Menu</span>
   <nav class="mdl-navigation">
-    <a class="mdl-navigation__link" href="<%= new_user_registration_path %>">Sign Up</a>
-    <a class="mdl-navigation__link" href="<%= new_user_session_path %>">Sign In</a>
-<!--<a class="mdl-navigation__link" href="">Create a Mum</a>-->
-</nav>
+    <a class="mdl-navigation__link" href="#">Links</a>
+    <a class="mdl-navigation__link" href="#">Links</a>
+  </nav>
 </div>
