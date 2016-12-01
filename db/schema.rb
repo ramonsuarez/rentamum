@@ -30,6 +30,21 @@ ActiveRecord::Schema.define(version: 20161201150355) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
+  create_table "acts_as_bookable_bookings", force: :cascade do |t|
+    t.string   "bookable_type"
+    t.integer  "bookable_id"
+    t.string   "booker_type"
+    t.integer  "booker_id"
+    t.integer  "amount"
+    t.text     "schedule"
+    t.datetime "time_start"
+    t.datetime "time_end"
+    t.datetime "time"
+    t.datetime "created_at"
+    t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable", using: :btree
+    t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker", using: :btree
+  end
+
   create_table "bookings", force: :cascade do |t|
     t.boolean  "status"
     t.integer  "user_id"

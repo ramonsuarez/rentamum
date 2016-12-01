@@ -6,7 +6,7 @@ class MotherListingsController < ApplicationController
   end
 
   def show
-
+    @booking =  ActsAsBookable::Booking.new
   end
 
   def new

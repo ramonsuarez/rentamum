@@ -25,6 +25,8 @@ gem 'autoprefixer-rails'
 gem 'rails_admin'
 gem 'devise'
 
+gem 'acts_as_bookable'
+
 
 
 group :development, :test do
