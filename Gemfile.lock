@@ -264,11 +264,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-  attachinary!
-=======
   acts_as_bookable
->>>>>>> booking
+  attachinary!
   autoprefixer-rails
   better_errors
   binding_of_caller

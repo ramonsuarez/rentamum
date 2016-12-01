@@ -6,11 +6,8 @@ class MotherListing < ApplicationRecord
   has_many :mother_listing_reviews
   has_one :mother_skill
   has_many :skills, through: :mother_skill
-<<<<<<< HEAD
   has_attachment :photo
-=======
 
   acts_as_bookable# time_type: :range #time_type: :none
 
->>>>>>> booking
 end

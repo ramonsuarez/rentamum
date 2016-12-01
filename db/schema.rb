@@ -15,21 +15,6 @@ ActiveRecord::Schema.define(version: 20161201150355) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attachinary_files", force: :cascade do |t|
-    t.string   "attachinariable_type"
-    t.integer  "attachinariable_id"
-    t.string   "scope"
-    t.string   "public_id"
-    t.string   "version"
-    t.integer  "width"
-    t.integer  "height"
-    t.string   "format"
-    t.string   "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
-  end
-
   create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
     t.integer  "bookable_id"
@@ -43,6 +28,21 @@ ActiveRecord::Schema.define(version: 20161201150355) do
     t.datetime "created_at"
     t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable", using: :btree
     t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker", using: :btree
+  end
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string   "attachinariable_type"
+    t.integer  "attachinariable_id"
+    t.string   "scope"
+    t.string   "public_id"
+    t.string   "version"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "format"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
   create_table "bookings", force: :cascade do |t|
