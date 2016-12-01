@@ -1,5 +1,5 @@
 class AddDescriptionToUsers < ActiveRecord::Migration[5.0]
   def change
-    add_column :users, :decription, :text
+    add_column :users, :description, :text
   end
 end
