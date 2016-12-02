@@ -1,21 +1,22 @@
 <div class="mdl-grid">
   <div class="mdl-layout-spacer">
     <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__title">
-        <%= image_tag "mom1.jpg" %>
-      </div>
+
+      <% if @mother_listing.photo.nil? %>
+      <%= image_tag "mother_listing_image_default.png", height: 300, crop: :fill %>
+      <% else %>
+      <%= cl_image_tag @product.photo.path, width: 200, height: 300, crop: :fill %>
+      <% end %>
+
+      <div class="mdl-card__title"><h1><%= @mother_listing.first_name %></h1></div>
+
       <div class="mdl-card__supporting-text">
+
         <h2 class="mdl-card__title-text">About this mom:</h2>
         <%= @mother_listing.description %>
 
-           <%= form_for [@mother_listing, @booking], url: mother_listing_bookings_path(@mother_listing) do |f| %>
-             <%= f.datetime_local_field :time_start %>
-             <%= f.datetime_local_field :time_end %>
-             <%= f.submit %>
-           <% end %>
+        <h2 class="mdl-card__title-text">Her Skills:</h2>
 
-
-        <h2>Her Skills:</h2>
       </div>
     <!-- <div class="mdl-card__actions mdl-card--border">
       <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
