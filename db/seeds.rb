@@ -28,4 +28,15 @@ User.destroy_all
   )
 end
 
+Skill.create(name: "Good listener")
+Skill.create(name: "Cooks really well")
+Skill.create(name: "Can be hugged and give hugs")
+Skill.create(name: "Light cleaning service")
+Skill.create(name: "Yells if needed")
+Skill.create(name: "Good shoulder to cry on")
+Skill.create(name: "Gives advice")
+Skill.create(name: "Change babies and toddlers diapers")
+Skill.create(name: "Deals with sick ('unwell people'!!)")
+Skill.create(name: "Can give mother love (as in 'mother love'!!)")
+
 

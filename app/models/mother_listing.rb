@@ -1,14 +1,15 @@
 class MotherListing < ApplicationRecord
   belongs_to :user
   belongs_to :user_favorite
-  belongs_to :booking
+  has_many :bookings
   belongs_to :user_review
   has_many :mother_listing_reviews
   has_one :mother_skill
   has_many :skills, through: :mother_skill
-  has_attachment :photo
 
-  acts_as_bookable# time_type: :range #time_type: :none
+  def validate_availability
+      errors.add("Availability ") if self.availability_from >= self.availability_to
+  end
 
   def self.search(search)
     # where("first_name LIKE ?", "%#{search}%")
@@ -18,4 +19,5 @@ class MotherListing < ApplicationRecord
     # you may need to change  LIKE to  ILIKE
   end
 
+  has_attachment :photo
 end

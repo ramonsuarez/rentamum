@@ -9,6 +9,12 @@ class MotherListingsController < ApplicationController
     else
       @mother_listings = MotherLisitng.all.order('created_at DESC')
     end
+
+    if current_user
+      @mother_listings = MotherListing.not_belonging_to_current_user(current_user.id)
+    else
+      @mother_listings = MotherListing.all
+    end
   end
 
   def show
@@ -16,7 +22,7 @@ class MotherListingsController < ApplicationController
   end
 
   def new
-    @mother_listings = MotherListing.new
+    @mother_listing = MotherListing.new
 
   end
 
