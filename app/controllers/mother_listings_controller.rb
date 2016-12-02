@@ -1,8 +1,16 @@
 class MotherListingsController < ApplicationController
   before_action :set_mother_listing, only: [:show, :edit, :update, :destroy]
 
+
+
   def index
     @mother_listings = MotherListing.all
+    # Simple search as per http://www.korenlc.com/creating-a-simple-search-in-rails-4/
+    if params[:search]
+      @mother_listings = MotherListing.search(params[:search]).order("created_at DESC")
+    else
+      @mother_listings = MotherLisitng.all.order('created_at DESC')
+    end
   end
 
   def show

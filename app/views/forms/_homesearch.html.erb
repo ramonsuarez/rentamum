@@ -1,6 +1,16 @@
 <form action="#">
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="sample1">
-    <label class="mdl-textfield__label" for="sample1">Search a Mum</label>
+    <%= form_tag(mother_listings_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Find a mom" %>
+      <%= submit_tag "Search" %>
+    <% end %>
+<!--     <input class="mdl-textfield__input" type="text" id="sample1">
+    <label class="mdl-textfield__label" for="sample1">Search a Mum</label> -->
   </div>
 </form>
+
+<% if @mother_listings.present? %>
+  <%= render @mother_listings %>
+<% else %>
+  <p>We could not find any moms containing the term(s) <%= params[:search] %>. Try again with other keywords!</p>
+<% end %>
