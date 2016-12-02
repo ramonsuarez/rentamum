@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :mother_listings do
     resources :bookings, only: [:show, :new, :create, :destroy]
   end

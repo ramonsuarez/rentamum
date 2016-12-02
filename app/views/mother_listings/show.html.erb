@@ -8,11 +8,10 @@
     <h2 class="mdl-card__title-text">About this mom:</h2>
     <%= @mother_listing.description %>
     <h4>Her Skills:</h4>
+   <%= link_to 'Edit', edit_mother_listing_path(@mother_listing) %>
+   <%= link_to 'Book', new_mother_listing_booking_path(@mother_listing) %>
     </div>
-    <!-- <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        Get Started
-      </a> -->
+
     </div>
     <div class="mdl-card__menu">
       <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">

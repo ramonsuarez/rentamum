@@ -2,7 +2,13 @@ class MotherListingsController < ApplicationController
   before_action :set_mother_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-    @mother_listings = MotherListing.all
+    def index
+    if current_user
+      @mother_listings = MotherListing.not_belonging_to_current_user(current_user.id)
+    else
+      @mother_listings = MotherListing.all
+    end
+  end
   end
 
   def show
