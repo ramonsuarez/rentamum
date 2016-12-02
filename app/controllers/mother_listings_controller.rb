@@ -1,8 +1,6 @@
 class MotherListingsController < ApplicationController
   before_action :set_mother_listing, only: [:show, :edit, :update, :destroy]
 
-
-
   def index
     @mother_listings = MotherListing.all
     # Simple search as per http://www.korenlc.com/creating-a-simple-search-in-rails-4/

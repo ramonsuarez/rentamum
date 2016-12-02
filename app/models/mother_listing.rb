@@ -12,7 +12,8 @@ class MotherListing < ApplicationRecord
 
   def self.search(search)
     # where("first_name LIKE ?", "%#{search}%")
-    where("content LIKE ?", "%#{search}%")
+    # where("last_name LIKE ?", "%#{search}%")
+    where("description LIKE ?", "%#{search}%")
     # this will work in development with SQLite. If you switch to PostgreSQL in production
     # you may need to change  LIKE to  ILIKE
   end
