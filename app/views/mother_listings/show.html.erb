@@ -27,8 +27,39 @@
         <i class="material-icons">share</i>
       </button>
     </div>
+  </div>
+</div>
 
 
+<div class="page-content" style="margin-top: 50px; margin-bottom: 50px;">
+  <div class="mdl-grid">
 
+    <div class="mdl-cell mdl-cell--4-col"></div>
+    <div class="mdl-cell mdl-cell--4-col">
+
+        <%= form_for [@mother_listing, @booking], url: mother_listing_bookings_path(@mother_listing) do |f| %>
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp EditNewCard">
+          <h1>About this Mum</h1>
+
+          <%= image_tag "mom1.jpg" %>
+
+          <%= "#{@mother_listing.first_name} #{@mother_listing.last_name}" %>
+
+          <%= @mother_listing.description %>
+
+          <div class="mdl-card__supporting-text">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <h1>Select the booking period</h1>
+              <%= f.datetime_local_field :time_start %>
+              <%= f.datetime_local_field :time_end %>
+            </div>
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <%= f.submit %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
   </div>
 </div>
