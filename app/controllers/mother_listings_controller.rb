@@ -10,7 +10,7 @@ class MotherListingsController < ApplicationController
   end
 
   def new
-    @mother_listings = MotherListing.new
+    @mother_listing = MotherListing.new
 
   end
 
