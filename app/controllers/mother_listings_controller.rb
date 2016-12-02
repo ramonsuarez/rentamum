@@ -11,7 +11,6 @@ class MotherListingsController < ApplicationController
 
   def new
     @mother_listings = MotherListing.new
-
   end
 
   def create
