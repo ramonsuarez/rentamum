@@ -1,1 +1,9 @@
-index.html.erb
+<% if @mother_listings.present? %>
+  <ul>
+  <% @mother_listings.each do |result| %>
+  <li><%= result.description %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <p>We could not find any moms containing the term(s) <%= params[:search] %>. Try again with other keywords!</p>
+<% end %>

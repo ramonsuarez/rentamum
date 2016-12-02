@@ -1,6 +1,7 @@
-<form action="#">
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="homeSearch">
-    <label class="mdl-textfield__label" for="homeSearch">Search a Mum</label>
+    <%= form_tag(mother_listings_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Find a mom", :class => "mdl-textfield__input" %>
+      <%= submit_tag "Search", :class => "mdl-textfield__button" %>
+    <% end %>
   </div>
-</form>
+

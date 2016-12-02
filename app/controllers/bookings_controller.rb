@@ -1,10 +1,21 @@
 class BookingsController < ApplicationController
-  def show
-    @booking = Booking.find(params[:id])
+  before_action :set_booking_params, :only => [:show, :edit, :update, :destroy]
+
+  def index
+    @title = "My reservations"
+    @bookings = current_user.bookings
   end
 
   def new
-    @booking = Booking.new
+
+  end
+
+  def show
+
+  end
+
+  def edit
+
   end
 
   def create
@@ -31,6 +42,6 @@ class BookingsController < ApplicationController
   private
 
   def set_booking_params
-    params.require(:booking).permit(:time_start, :time_end)
+    @booking = Booking.find(params[:id])
   end
 end
