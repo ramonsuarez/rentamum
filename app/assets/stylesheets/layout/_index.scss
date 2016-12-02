@@ -1,3 +1,8 @@
 @import "card";
 @import "footer";
 @import "navbar";
+
+::selection {
+    background: #f44336;
+    text-shadow: none;
+}
