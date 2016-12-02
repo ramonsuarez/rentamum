@@ -7,9 +7,9 @@ class MotherListing < ApplicationRecord
   has_one :mother_skill
   has_many :skills, through: :mother_skill
 
-
   def validate_availability
       errors.add("Availability ") if self.availability_from >= self.availability_to
   end
 
+  has_attachment :photo
 end

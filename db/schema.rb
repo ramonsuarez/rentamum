@@ -10,10 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129092145) do
+ActiveRecord::Schema.define(version: 20161201150355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "acts_as_bookable_bookings", force: :cascade do |t|
+    t.string   "bookable_type"
+    t.integer  "bookable_id"
+    t.string   "booker_type"
+    t.integer  "booker_id"
+    t.integer  "amount"
+    t.text     "schedule"
+    t.datetime "time_start"
+    t.datetime "time_end"
+    t.datetime "time"
+    t.datetime "created_at"
+    t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable", using: :btree
+    t.index ["booker_type", "booker_id"], name: "index_acts_as_bookable_bookings_booker", using: :btree
+  end
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string   "attachinariable_type"
+    t.integer  "attachinariable_id"
+    t.string   "scope"
+    t.string   "public_id"
+    t.string   "version"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "format"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.boolean  "status"
@@ -104,6 +134,7 @@ ActiveRecord::Schema.define(version: 20161129092145) do
     t.string   "payment_method"
     t.string   "phone"
     t.float    "average_rating",         default: 0.0
+    t.text     "description"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

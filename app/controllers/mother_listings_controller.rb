@@ -12,7 +12,7 @@ class MotherListingsController < ApplicationController
   end
 
   def show
-
+    @booking =  ActsAsBookable::Booking.new
   end
 
   def new
@@ -51,7 +51,7 @@ class MotherListingsController < ApplicationController
 
 
   def mother_listing_params
-    params.require(:mother_listing).permit(:id, :first_name, :last_name, :price, :location, :description)
+    params.require(:mother_listing).permit(:id, :first_name, :last_name, :price, :location, :description, :photo)
   end
 
 end
